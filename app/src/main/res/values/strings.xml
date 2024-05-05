@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CI601App</string>
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="welcome_message">Welcome %1$s</string>
+    <string name="quiz_activity_label">Quiz Activity</string>
+    <string name="navigation_home">Home</string>
+    <string name="navigation_news">News</string>
+    <string name="navigation_profile">Profile</string>
+</resources>

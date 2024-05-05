@@ -1,0 +1,21 @@
+buildscript {
+    // It's a good practice to also define repositories here for classpath dependencies, even if settings.gradle has repository settings.
+    repositories {
+        google()  // Essential for Google and Firebase dependencies
+        mavenCentral()  // Backup for most open-source libraries
+
+    }
+
+    dependencies {
+        classpath 'com.google.gms:google-services:4.4.1'  // Google Services plugin for Firebase and other Google utilities
+        // Ensure that you have the Android Gradle Plugin and Kotlin Gradle Plugin appropriate for your setup
+        classpath 'com.android.tools.build:gradle:7.0.4'  // Check for compatibility with your Android Studio version
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0"  // Kotlin plugin
+    }
+}
+
+plugins {
+    id 'com.android.application' version '8.3.2' apply false
+    id 'com.android.library' version '8.3.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.0' apply false
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/GlobalTextViewStyle</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <!--  <item name="android:windowBackground">@drawable/gradient_background</item> -->
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <!-- Customize your theme here. -->
+
+        <item name="windowSplashScreenBackground">@color/colorPrimaryDark</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_inset</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+
+    </style>
+
+    <style name="Theme.LoginSignup" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary Brand Color -->
+        <item name="android:textViewStyle">@style/GlobalTextViewStyle</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textColor">@color/colorText</item>
+
+    </style>
+
+    <style name="LoginTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Inherit the global text style here -->
+        <item name="android:textViewStyle">@style/GlobalTextViewStyle</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/your_status_bar_color</item>
+        <!-- Any other styles you want to apply specifically to LoginActivity -->
+    </style>
+
+    <style name="Theme.noActionbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <style name="AppTheme.FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <!-- Style to apply to all TextViews. -->
+    <style name="GlobalTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/madeleinasans</item>
+    </style>
+
+
+    <style name="BottomNavigationViewTextAppearance">
+        <item name="android:textSize">22sp</item> <!-- Set your desired text size here -->
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+</resources>
