@@ -1,5 +1,6 @@
 package com.example.ci601app
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 import com.example.ci601app.databinding.ActivityNewsBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.withContext
 
 const val BASE_URL = "https://api.currentsapi.services" // Ensure no space in the URL
@@ -29,6 +31,7 @@ class NewsActivity : AppCompatActivity() {
         binding = ActivityNewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpRecyclerView()
+        setupBottomNavigation()
         makeAPIRequest()
     }
 
@@ -80,6 +83,34 @@ class NewsActivity : AppCompatActivity() {
                 }
             } catch (e: Exception) {
                 Log.e("NewsActivity", "Exception in making API request", e)
+            }
+        }
+    }
+
+
+    private fun setupBottomNavigation() {
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.news -> {
+                    val intent = Intent(this, NewsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.navigation_profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                else -> false
             }
         }
     }

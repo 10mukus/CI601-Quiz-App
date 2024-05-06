@@ -5,9 +5,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background1"
+    android:background="@drawable/test_background"
     android:theme="@style/LoginTheme"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/imageView4"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/upside_down" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/top_background" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/gradient_border"
@@ -16,8 +47,8 @@
         android:paddingBottom="10dp">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginTop="40dp"
         android:id="@+id/logonew"
         android:src="@drawable/logo_white"/>
@@ -28,7 +59,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/userNameTextView"
         android:text="Username"
-        android:background="@drawable/quizoptions_border"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:padding="20dp"
@@ -47,19 +77,19 @@
         android:columnCount="2"
         android:layout_below="@id/gradient_border"
         android:alignmentMode="alignMargins"
-        android:paddingTop="0dp"
-        android:background="@drawable/homepage_gradientborder"
         android:layout_marginStart="0dp"
+        android:background="@drawable/categories_background"
         android:layout_marginEnd="0dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Topics"
-            android:text="Topics"
+            android:text="Explore Quizzes"
+            android:background="@drawable/blue_round"
             android:textColor="@color/white"
-            android:background="@drawable/homepage_gradientborder"
             android:textSize="32sp"
             android:padding="20dp"
             android:layout_row="0"

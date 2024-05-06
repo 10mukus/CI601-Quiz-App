@@ -11,6 +11,7 @@
     <color name="green">#00FF00 </color>
     <color name="orange">#D37630</color>
     <color name="blue">#1E85D5</color>
+    <color name="test">#f0ece5</color>
     <!-- <color name="colorPrimary">#003366</color>
     <color name="colorPrimaryDark">#002244</color>
     <color name="colorAccent">#A4C639</color>
