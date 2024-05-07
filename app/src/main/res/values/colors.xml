@@ -17,6 +17,10 @@
     <color name="colorAccent">#A4C639</color>
     -->
 
+    <color name="correctGreen">#4CAF50</color>
+    <color name="incorrectRed">#F44336</color>
+    <color name="quiz_purple">#6200EE</color>
+    <color name="quiz_background">#5034AD</color>
     <color name="colorPrimary">#4B4E7E</color>
     <color name="colorPrimaryDark">#3A3F6E</color>
     <color name="colorAccent">#C5CAE9</color>

@@ -5,7 +5,7 @@
 
 
     <solid
-        android:color="@color/colorPrimaryDark"/>
+        android:color="@color/colorPrimary"/>
 
     <corners
         android:topRightRadius="30dp"

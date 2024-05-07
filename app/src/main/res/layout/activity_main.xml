@@ -35,6 +35,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:translationX="0.75dp"
                 app:srcCompat="@drawable/top_background" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -44,30 +45,33 @@
         android:id="@+id/gradient_border"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp">
+        android:paddingBottom="0dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginTop="40dp"
-        android:id="@+id/logonew"
-        android:src="@drawable/logo_white"/>
+        <TextView
+            android:id="@+id/userNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:padding="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="63dp"
+            android:layout_marginBottom="20dp"/>
 
+        <ImageView
+            android:id="@+id/characterImage"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:src="@drawable/thinking1"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:translationY="30dp"
+            android:layout_marginRight="-210dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/userNameTextView"
-        android:text="Username"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:padding="20dp"
-        android:gravity="center"
-        android:layout_below="@+id/logonew"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="20dp"/>
     </RelativeLayout>
+
 
     <GridLayout
         android:layout_width="match_parent"
@@ -80,14 +84,13 @@
         android:layout_marginStart="0dp"
         android:background="@drawable/categories_background"
         android:layout_marginEnd="0dp"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Topics"
-            android:text="Explore Quizzes"
+            android:text="Categories"
             android:background="@drawable/blue_round"
             android:textColor="@color/white"
             android:textSize="32sp"
@@ -124,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:text="Fundamentals"
                     android:textSize="20sp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textAlignment="center"
                     android:textStyle="bold"/>
             </LinearLayout>
@@ -158,7 +161,7 @@
                     android:text="Network Security"
                     android:textSize="20sp"
 
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textAlignment="center"
                     android:textStyle="bold"/>
             </LinearLayout>
@@ -191,7 +194,7 @@
                     android:layout_height="wrap_content"
                     android:text="Ethical Hacking"
                     android:textSize="20sp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textAlignment="center"
                     android:textStyle="bold"/>
             </LinearLayout>
@@ -225,7 +228,7 @@
                     android:text="Cryptography"
                     android:textSize="20sp"
 
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textAlignment="center"
                     android:textStyle="bold"/>
             </LinearLayout>
@@ -259,7 +262,7 @@
                     android:text="Cyberlaws"
                     android:textSize="20sp"
 
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textAlignment="center"
                     android:textStyle="bold"/>
             </LinearLayout>
@@ -292,8 +295,7 @@
                     android:layout_height="wrap_content"
                     android:text="Malware"
                     android:textSize="20sp"
-
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textAlignment="center"
                     android:textStyle="bold"/>
             </LinearLayout>

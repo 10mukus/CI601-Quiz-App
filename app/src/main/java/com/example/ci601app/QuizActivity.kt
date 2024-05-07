@@ -79,6 +79,7 @@ class QuizActivity : AppCompatActivity() {
         val indicatorText = "Question $currentQuestionNumber/$totalQuestions"
         questionIndicatorTextView.text = indicatorText
     }
+
     private fun setupUI() {
         questionTextView = findViewById(R.id.question_textview)
         timerTextView = findViewById(R.id.timer_indicator_textview)
@@ -117,6 +118,7 @@ class QuizActivity : AppCompatActivity() {
                 currentQuestionIndex++
                 resetAnswers(answers)
                 setQuestion(currentQuestionIndex)
+                updateProgressIndicator()// This should also handle the back button visibility
             } else {
                 finishQuiz()
             }
@@ -125,8 +127,8 @@ class QuizActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             if (currentQuestionIndex > 0) {
                 currentQuestionIndex--
-                resetAnswers(answers)
                 setQuestion(currentQuestionIndex)
+                updateProgressIndicator()// Again, ensure this updates the back button visibility
             }
             backButton.visibility = if (currentQuestionIndex > 0) View.VISIBLE else View.GONE
             backButton.isEnabled = currentQuestionIndex > 0
@@ -137,10 +139,12 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun resetAnswers(answers: Array<Button>) {
         answers.forEach { button ->
             button.isEnabled = true
-            button.setBackgroundResource(R.drawable.quizoptions_border)
+            button.setBackgroundResource(R.drawable.buttons_background)
         }
     }
     private fun loadRandomQuestionsFromFirebase() {
@@ -176,29 +180,6 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    //original code that works properly
-    /* private fun setQuestion(index: Int) {
-         if (index in 0 until questionsList.size) {
-             val question = questionsList[index]
-             questionTextView.text = question.questionText
-             question.options.forEachIndexed { i, option ->
-                 val buttonId = when (i) {
-                     0 -> R.id.btn0
-                     1 -> R.id.btn1
-                     2 -> R.id.btn2
-                     else -> R.id.btn3
-                 }
-
-                 val button = findViewById<Button>(buttonId)
-                 button.text = option
-             }
-             val progress = (index + 1) * 100 / questionsList.size
-             progressIndicator.setProgressCompat(progress, true)
-             updateQuestionIndicator()
-         }
-     }
-     */
-
     private fun setQuestion(index: Int) {
         if (index in questionsList.indices) {
             val question = questionsList[index]
@@ -211,32 +192,54 @@ class QuizActivity : AppCompatActivity() {
                 findViewById<Button>(R.id.btn3)
             )
 
-            // Reset and setup answers
-            answers.forEachIndexed { i, button ->
-                // Reset to default state
-                button.isEnabled = true
-                button.visibility = if (i < question.options.size) View.VISIBLE else View.GONE
-                button.text = question.options.getOrElse(i) { "" }
-                button.setBackgroundResource(R.drawable.quizoptions_border)  // Default background
-
-                // Remove any tick or cross drawable
+            // Reset all buttons to default
+            answers.forEach { button ->
+                button.setBackgroundResource(R.drawable.buttons_background)
                 button.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
             }
 
-            updateProgressIndicator(index)
+            // Configure each button based on current state
+            answers.forEachIndexed { i, button ->
+                button.text = question.options.getOrElse(i) { "" }
+
+                if (selectedOptions[index] == -1) {
+                    // If question not answered, enable all buttons
+                    button.isEnabled = true
+                } else {
+                    // Disable buttons if question has been answered
+                    button.isEnabled = false
+
+                    // Check if the index matches the selected option
+                    if (i == selectedOptions[index]) {
+                        // Mark the user's selected option
+                        button.setBackgroundResource(if (i == question.correctAnswerIndex) R.drawable.quizoptions_correct else R.drawable.quizoptions_wrong)
+                        button.setCompoundDrawablesWithIntrinsicBounds(0, 0, if (i == question.correctAnswerIndex) R.drawable.correct_tick_24 else R.drawable.wrong_answer_24, 0)
+                    }
+
+                    // Additionally, always mark the correct answer distinctly
+                    if (i == question.correctAnswerIndex) {
+                        button.setBackgroundResource(R.drawable.quizoptions_correct)
+                        button.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.correct_tick_24, 0)
+                    }
+                }
+            }
+            updateProgressIndicator()
+            backButton.visibility = if (index > 0) View.VISIBLE else View.GONE
+            backButton.isEnabled = index > 0
         } else {
             Log.e("QuizActivity", "Index out of bounds while setting question: $index")
         }
     }
-    private fun updateProgressIndicator(currentIndex: Int) {
-        val progress = (currentIndex + 1) * 100 / questionsList.size
-        progressIndicator.setProgressCompat(progress, true)
-        val questionIndicatorText = "Question ${currentIndex + 1}/${questionsList.size}"
-        questionIndicatorTextView.text = questionIndicatorText
+
+    private fun updateProgressIndicator() {
+        val totalQuestions = questionsList.size
+        val currentQuestionNumber = currentQuestionIndex + 1
+        val progress = (currentQuestionNumber.toFloat() / totalQuestions.toFloat()) * 100
+        progressIndicator.setProgressCompat(progress.toInt(), true)
+
+        // Update the question indicator text view to show the current question number out of total questions
+        questionIndicatorTextView.text = "Question $currentQuestionNumber/$totalQuestions"
     }
-
-
-
 
 
     private fun checkAnswer(selectedIndex: Int, isCorrect: Boolean) {
@@ -263,39 +266,32 @@ class QuizActivity : AppCompatActivity() {
     private fun highlightAnswers(answers: Array<Button>, correctIndex: Int, selectedIndex: Int) {
         answers.forEachIndexed { index, button ->
             when (index) {
-                correctIndex -> button.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.correct_tick_24, 0)
+                correctIndex -> {
+                    button.setBackgroundResource(R.drawable.quizoptions_correct)
+                    button.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.correct_tick_24, 0)
+                }
                 selectedIndex -> {
                     if (selectedIndex != correctIndex) {
+                        button.setBackgroundResource(R.drawable.quizoptions_wrong)
                         button.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.wrong_answer_24, 0)
                     }
                 }
-                else -> button.setBackgroundResource(R.drawable.quizoptions_border)
+                else -> button.setBackgroundResource(R.drawable.buttons_background)
             }
         }
     }
     private fun startTimer(timeInMillis: Long) {
-        val animator = ValueAnimator.ofInt(100, 0).apply {
-            duration = timeInMillis
-            interpolator = LinearInterpolator()
-            addUpdateListener { animation ->
-                val progress = animation.animatedValue as Int
-                progressIndicator.setProgressCompat(progress, true)
-            }
-            doOnEnd {
-                timerTextView.text = "Time's Up!"
-                finishQuiz()
-                progressIndicator.progress = 0
-            }
-        }
-        animator.start()
-
+        // If the timer still needs to exist for other reasons, ensure it does not update progressIndicator
         object : CountDownTimer(timeInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val minutes = millisUntilFinished / 60000
                 val seconds = (millisUntilFinished % 60000) / 1000
                 timerTextView.text = String.format("%d:%02d", minutes, seconds)
             }
-            override fun onFinish() { /* Timer finish is handled by animator */ }
+            override fun onFinish() {
+                timerTextView.text = "Time's Up!"
+                finishQuiz()
+            }
         }.start()
     }
 

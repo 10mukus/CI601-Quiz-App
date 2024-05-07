@@ -32,6 +32,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:translationY="-320dp"
             app:srcCompat="@drawable/top_background" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -68,8 +69,9 @@
                 android:padding="8dp"
                 android:layout_gravity="center"
                 android:hint="Email"
+                android:textSize="25dp"
                 android:drawableLeft="@drawable/baseline_email_24"
-                android:drawablePadding="8dp"
+                android:drawablePadding="10dp"
                 android:textColor="@color/gray"/>
 
             <EditText
@@ -80,10 +82,11 @@
                 android:layout_gravity="center"
                 android:background="@drawable/blue_border"
                 android:padding="8dp"
+                android:textSize="25dp"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:drawableLeft="@drawable/baseline_lock_24"
-                android:drawablePadding="8dp"
+                android:drawablePadding="10dp"
                 android:textColor="@color/gray"/>
 
             <Button
@@ -91,10 +94,13 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"
-                android:background="@drawable/quizoptions_correct"
+                android:background="@drawable/loginbuttons"
                 android:text="Login"
+                android:textColor="@color/white"
+                android:textStyle="bold"
                 android:id="@+id/login_button"
-                android:textSize="18sp" />
+                android:textSize="25dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,8 +109,8 @@
                 android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:padding="8dp"
-                android:textSize="20sp"
-                android:layout_marginTop="6dp"/>
+                android:textSize="23sp"
+                android:layout_marginTop="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -113,8 +119,8 @@
                 android:text="Not yet registered? Signup"
                 android:layout_gravity="center"
                 android:padding="8dp"
-                android:layout_marginTop="10dp"
-                android:textSize="22sp"
+                android:layout_marginTop="20dp"
+                android:textSize="25sp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>

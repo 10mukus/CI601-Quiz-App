@@ -15,16 +15,6 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/complete_background" />
-
-        <ImageView
             android:id="@+id/imageView4"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -44,8 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -109,10 +97,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_marginVertical="8dp"
-                android:background="@drawable/quizoptions_border"
+                android:background="@drawable/questions_background"
                 android:gravity="center"
                 android:padding="8dp"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 tools:text="What is the purpose of cybersecurity?" />
@@ -122,14 +110,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/quizoptions_border"
+                android:background="@drawable/buttons_background"
                 android:gravity="center_vertical"
                 android:drawableEnd="@null"
                 android:paddingHorizontal="18dp"
                 android:paddingVertical="12dp"
                 style="@style/GlobalTextViewStyle"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="23sp"
                 tools:text="Ans A" />
 
@@ -139,12 +127,12 @@
                 android:layout_height="wrap_content"
                 style="@style/GlobalTextViewStyle"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/quizoptions_border"
+                android:background="@drawable/buttons_background"
                 android:gravity="center_vertical"
                 android:paddingHorizontal="18dp"
                 android:paddingVertical="12dp"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="23sp"
                 tools:text="Ans B" />
 
@@ -154,12 +142,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
                 style="@style/GlobalTextViewStyle"
-                android:background="@drawable/quizoptions_border"
+                android:background="@drawable/buttons_background"
                 android:gravity="center_vertical"
                 android:paddingHorizontal="18dp"
                 android:paddingVertical="12dp"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="23sp"
                 tools:text="Ans C" />
 
@@ -169,12 +157,12 @@
                 android:layout_height="wrap_content"
                 style="@style/GlobalTextViewStyle"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/quizoptions_border"
+                android:background="@drawable/buttons_background"
                 android:gravity="center_vertical"
                 android:paddingHorizontal="18dp"
                 android:paddingVertical="1dp"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="23sp"
                 tools:text="Ans D" />
 
@@ -194,12 +182,12 @@
                 android:layout_gravity="start"
                 style="@style/GlobalTextViewStyle"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/quizoptions_border"
+                android:background="@drawable/buttons_background"
                 android:gravity="center"
                 android:text="Back"
                 android:paddingVertical="12dp"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp"
                 android:visibility="visible" />
 
@@ -213,12 +201,12 @@
                 android:paddingHorizontal="40dp"
                 android:layout_gravity="end"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/quizoptions_border"
+                android:background="@drawable/buttons_background"
                 android:gravity="center"
                 android:paddingVertical="12dp"
                 android:text="Next"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp" />
 
             <Button
@@ -239,7 +227,7 @@
                 android:visibility="gone"
                 android:textAllCaps="false"
                 android:onClick="onFinishQuizClicked"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp" />
 
 

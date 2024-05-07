@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/quiz_background"
+    tools:context=".QuizActivity">
+
+    <!-- Progress Indicator and Question Counter -->
+    <TextView
+        android:id="@+id/question_counter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/quiz_purple"
+        android:text="Question 14/20"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:gravity="center"/>
+
+    <!-- Question Text -->
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Which one is the first search engine on the internet?"
+        android:textSize="20sp"
+        android:padding="16dp"
+        android:layout_below="@id/question_counter"
+        android:background="@drawable/rounded_button"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_margin="16dp"/>
+
+    <!-- Answer Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/question_text">
+
+        <!-- Each button should use a style for consistent formatting -->
+        <Button
+            android:id="@+id/option_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Archie"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/black"
+            android:layout_margin="8dp"
+            android:padding="12dp"/>
+
+        <Button
+            android:id="@+id/option_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Google"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/black"
+            android:layout_margin="8dp"
+            android:padding="12dp"/>
+
+        <Button
+            android:id="@+id/option_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Altavista"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/black"
+            android:layout_margin="8dp"
+            android:padding="12dp"/>
+
+        <Button
+            android:id="@+id/option_d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WAIS"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/black"
+            android:layout_margin="8dp"
+            android:padding="12dp"/>
+    </LinearLayout>
+
+    <!-- Navigation Button -->
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NEXT →"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"/>
+</RelativeLayout>
