@@ -117,7 +117,7 @@
                 android:paddingVertical="12dp"
                 style="@style/GlobalTextViewStyle"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#2B3752"
                 android:textSize="23sp"
                 tools:text="Ans A" />
 
@@ -132,7 +132,7 @@
                 android:paddingHorizontal="18dp"
                 android:paddingVertical="12dp"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#2B3752"
                 android:textSize="23sp"
                 tools:text="Ans B" />
 
@@ -147,7 +147,7 @@
                 android:paddingHorizontal="18dp"
                 android:paddingVertical="12dp"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#2B3752"
                 android:textSize="23sp"
                 tools:text="Ans C" />
 
@@ -162,7 +162,7 @@
                 android:paddingHorizontal="18dp"
                 android:paddingVertical="1dp"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#2B3752"
                 android:textSize="23sp"
                 tools:text="Ans D" />
 
@@ -170,7 +170,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="15dp">
+            android:paddingTop="30dp">
 
             <Button
                 android:id="@+id/btn_back"
@@ -182,12 +182,12 @@
                 android:layout_gravity="start"
                 style="@style/GlobalTextViewStyle"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/buttons_background"
+                android:background="@drawable/quizbacknext_buttons"
                 android:gravity="center"
                 android:text="Back"
                 android:paddingVertical="12dp"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 android:visibility="visible" />
 
@@ -201,12 +201,12 @@
                 android:paddingHorizontal="40dp"
                 android:layout_gravity="end"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/buttons_background"
+                android:background="@drawable/quizbacknext_buttons"
                 android:gravity="center"
                 android:paddingVertical="12dp"
                 android:text="Next"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/white"
                 android:textSize="25sp" />
 
             <Button
@@ -220,7 +220,7 @@
                 android:paddingHorizontal="20dp"
                 android:layout_gravity="end"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/quizoptions_border"
+                android:background="@drawable/quizbacknext_buttons"
                 android:gravity="center"
                 android:paddingVertical="12dp"
                 android:text="Finish Quiz"

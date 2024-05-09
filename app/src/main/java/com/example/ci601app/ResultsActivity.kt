@@ -1,14 +1,14 @@
 package com.example.ci601app
 
-import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.progressindicator.CircularProgressIndicator
 
 class ResultsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,8 +18,8 @@ class ResultsActivity : AppCompatActivity() {
 
         // Find UI elements
         val congratulationsText = findViewById<TextView>(R.id.congratulations_text)
-        val scoreText = findViewById<TextView>(R.id.score_text)
         val homeButton = findViewById<Button>(R.id.Home_Button)
+        val scoreCircleText = findViewById<TextView>(R.id.circle_score)
 
         // Extract the score from the intent
         val totalQuestions = intent.getIntExtra("TOTAL_QUESTIONS", 0)
@@ -28,7 +28,7 @@ class ResultsActivity : AppCompatActivity() {
 
         // Update UI elements with quiz results
         congratulationsText.text = if (scorePercentage >= 50) "Congratulations!" else "Better luck next time!"
-        scoreText.text = "Your Score: $correctAnswers/$totalQuestions"
+        setScoreText(scoreCircleText, correctAnswers, totalQuestions)
 
         // Handle home button click
         homeButton.setOnClickListener {
@@ -36,6 +36,24 @@ class ResultsActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    private fun setScoreText(textView: TextView, score: Int, total: Int) {
+        val scoreColor = if (score * 100 / total < 50) Color.RED else Color.GREEN
+        val scoreString = score.toString()
+        val totalString = "/$total"
+
+        // Create a SpannableString for the score and total, coloring only the score part
+        val spannable = SpannableStringBuilder(scoreString).apply {
+            // Apply color to the score
+            setSpan(ForegroundColorSpan(scoreColor), 0, length, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
+            // Apply larger text size to the score
+            setSpan(RelativeSizeSpan(1.5f), 0, length, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+
+        // Append the total with normal size
+        spannable.append(totalString)
+
+        // Set the complete text to TextView
+        textView.text = SpannableStringBuilder("").append(spannable)
+    }
 }
-
-

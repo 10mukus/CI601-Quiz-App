@@ -12,6 +12,7 @@ import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import com.google.android.material.progressindicator.LinearProgressIndicator
@@ -35,7 +36,6 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-
         // Restore state if there is a previous state saved
         if (savedInstanceState != null) {
             currentQuestionIndex = savedInstanceState.getInt("currentQuestionIndex", 0)
