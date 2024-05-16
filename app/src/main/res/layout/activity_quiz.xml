@@ -230,13 +230,12 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp" />
 
-
         </LinearLayout>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>
     </ScrollView>
+
 </FrameLayout>

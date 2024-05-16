@@ -12,7 +12,7 @@
 
     <ImageView
         android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_height="125dp"
         android:id="@+id/logoImg"
         android:layout_marginTop="50dp"
         android:src="@drawable/logo_white"
@@ -24,7 +24,7 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:id="@+id/profileImg"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/profilecircle"
         app:layout_constraintTop_toBottomOf="@id/logoImg"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,11 +40,9 @@
         android:background="@drawable/white_background"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profileImg">
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,7 +72,6 @@
                     android:textSize="22sp"/>
 
             </LinearLayout>
-
 
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -148,37 +145,66 @@
                 android:padding="12dp"/>
         </LinearLayout>
 
-
     </LinearLayout>
 
+
     <Button
+        android:id="@+id/Home_Button"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:id="@+id/Home_Button"
+        android:background="@drawable/quizbacknext_buttons"
         android:gravity="center"
         android:text="Back to Home"
         android:textSize="18sp"
-        app:cornerRadius = "20dp"
-        android:background="@drawable/quizbacknext_buttons"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/linearLayout"
         app:layout_constraintStart_toStartOf="@id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
-
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintVertical_bias="0.206" />
 
     <Button
+        android:id="@+id/LogoutBtn"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:id="@+id/LogoutBtn"
+        android:background="@drawable/quizbacknext_buttons"
         android:gravity="center"
         android:text="Logout"
         android:textSize="18sp"
-        app:cornerRadius = "20dp"
-        android:background="@drawable/quizbacknext_buttons"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/Home_Button"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/Home_Button"
-        app:layout_constraintTop_toBottomOf="@id/Home_Button"/>
+        app:layout_constraintTop_toBottomOf="@id/Home_Button"
+        app:layout_constraintVertical_bias="0.384" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/top_background"
+        android:scaleType="center"
+        android:rotation="290"
+        android:alpha="0.4" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/top_background"
+        android:scaleType="center"
+        android:rotation="260"
+        android:alpha="0.4" />
+
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/top_background"
+        android:scaleType="center"
+        android:rotation="150"
+        android:alpha="0.4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
