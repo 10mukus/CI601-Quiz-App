@@ -1,88 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/homepage"
+    android:background="@drawable/test_background"
     tools:context=".MainActivity">
 
-    <ImageView
+    <!-- Top Section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:src="@drawable/logonew"/>
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true">
 
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/upside_down" />
 
-    <TextView
-        android:layout_width="370dp"
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:translationX="0.75dp"
+            app:srcCompat="@drawable/top_background" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Username and Character Section -->
+    <RelativeLayout
+        android:id="@+id/gradient_border"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/userNameTextView"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:text="Username"
+        android:paddingBottom="0dp"
+        android:layout_below="@id/imageView4"
+        tools:ignore="NotSibling">
+
+        <TextView
+            android:id="@+id/userNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:background="@drawable/username_border"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:padding="20dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:id="@+id/characterImage"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/thinking1"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:translationY="30dp"
+            android:layout_marginEnd="-20dp" />
+    </RelativeLayout>
+
+    <!-- Categories Section Title -->
+    <TextView
+        android:id="@+id/Topics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:background="@drawable/blue_round"
         android:textColor="@color/white"
         android:textSize="32sp"
-        android:background="@drawable/darkblue_border"
-        android:padding="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:gravity="center_vertical"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp" />
+        android:padding="20dp"
+        android:layout_below="@id/gradient_border"
+        android:gravity="center" />
+
+    <!-- Scrollable GridLayout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/Topics"
+        android:layout_above="@id/bottomNavigationView">
 
         <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:id="@+id/gridLayout"
-            android:rowCount="2"
-            android:columnCount="3"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="80dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="3"
+            android:columnCount="2"
+            android:alignmentMode="alignMargins"
+            android:layout_margin="5dp">
 
+            <!-- CardViews for each category -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/mycardview"
-                android:layout_width="115dp"
-                android:layout_height="90dp"
+                android:layout_width="125dp"
+                android:layout_height="100dp"
                 android:layout_row="0"
                 android:layout_column="0"
-                android:layout_margin="8dp"
-                android:layout_gravity="bottom"
+                android:layout_margin="25dp"
+                android:layout_gravity="center"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/fundamentals"/>
+                        android:src="@drawable/fundamentals" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Fundamentals"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimary"
                         android:textAlignment="center"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/networksecuritycard"
-                android:layout_width="115dp"
-                android:layout_height="90dp"
+                android:layout_width="125dp"
+                android:layout_height="100dp"
                 android:layout_row="0"
                 android:layout_column="1"
-                android:layout_margin="8dp"
-                android:layout_gravity="bottom"
+                android:layout_margin="25dp"
+                android:layout_gravity="center"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
@@ -96,25 +149,26 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/networksecurity"/>
+                        android:src="@drawable/networksecurity" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Network Security"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimary"
                         android:textAlignment="center"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/ethicalhackingcard"
-                android:layout_width="115dp"
-                android:layout_height="90dp"
-                android:layout_row="0"
-                android:layout_column="2"
-                android:layout_margin="8dp"
-                android:layout_gravity="bottom"
+                android:layout_width="125dp"
+                android:layout_height="100dp"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_margin="25dp"
+                android:layout_gravity="center"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
@@ -128,24 +182,26 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/white_hat"/>
+                        android:src="@drawable/white_hat" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ethical Hacking"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimary"
                         android:textAlignment="center"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cryptographycard"
-                android:layout_width="115dp"
-                android:layout_height="90dp"
+                android:layout_width="125dp"
+                android:layout_height="100dp"
                 android:layout_row="1"
-                android:layout_column="0"
-                android:layout_margin="8dp"
+                android:layout_column="1"
+                android:layout_margin="25dp"
+                android:layout_gravity="center"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
@@ -159,24 +215,26 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/cryptography"/>
+                        android:src="@drawable/cryptography" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Cryptography"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimary"
                         android:textAlignment="center"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cyberlawscard"
-                android:layout_width="115dp"
-                android:layout_height="90dp"
-                android:layout_row="1"
-                android:layout_column="1"
-                android:layout_margin="8dp"
+                android:layout_width="125dp"
+                android:layout_height="100dp"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:layout_margin="25dp"
+                android:layout_gravity="center"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
@@ -190,24 +248,26 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/cyberlaws"/>
+                        android:src="@drawable/cyberlaws" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Cyberlaws"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimary"
                         android:textAlignment="center"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/malwarecard"
-                android:layout_width="115dp"
-                android:layout_height="90dp"
-                android:layout_row="1"
-                android:layout_column="2"
-                android:layout_margin="8dp"
+                android:layout_width="125dp"
+                android:layout_height="100dp"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:layout_margin="25dp"
+                android:layout_gravity="center"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
@@ -221,18 +281,34 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/malware"/>
+                        android:src="@drawable/malware" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Malware"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimary"
                         android:textAlignment="center"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-
         </GridLayout>
-    </RelativeLayout>
-    
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark"
+        app:itemIconTint="#fff"
+        app:itemTextColor="#fff"
+        app:labelVisibilityMode="labeled"
+        app:itemBackground="@drawable/item_ripple"
+        app:itemTextAppearanceActive="@dimen/design_bottom_navigation_active_text_size"
+        app:itemTextAppearanceInactive="@dimen/design_bottom_navigation_text_size"
+        app:menu="@menu/bottom_navigation_menu"
+        tools:ignore="PrivateResource" />
+</RelativeLayout>

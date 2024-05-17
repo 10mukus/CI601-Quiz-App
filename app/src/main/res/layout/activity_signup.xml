@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,6 +9,9 @@
     android:theme="@style/Theme.LoginSignup"
     tools:context=".SignupActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="0dp"
@@ -29,15 +32,11 @@
         app:layout_constraintTop_toTopOf="parent"
         android:translationY="-320dp"
         app:srcCompat="@drawable/top_background" />
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Scrollable Content -->
     <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,7 +58,7 @@
             android:padding="20dp">
             
             <EditText
-                android:layout_width="350dp"
+                android:layout_width="310dp"
                 android:layout_height="60dp"
                 android:id="@+id/signup_email"
                 android:layout_marginTop="30dp"
@@ -73,7 +72,7 @@
                 android:textColor="@color/gray"/>
 
             <EditText
-                android:layout_width="350dp"
+                android:layout_width="310dp"
                 android:layout_height="60dp"
                 android:id="@+id/signup_password"
                 android:layout_marginTop="25dp"
@@ -88,7 +87,7 @@
                 android:textColor="@color/gray"/>
 
             <EditText
-                android:layout_width="350dp"
+                android:layout_width="310dp"
                 android:layout_height="60dp"
                 android:id="@+id/signup_confirm"
                 android:textSize="25dp"
@@ -103,7 +102,7 @@
                 android:textColor="@color/gray"/>
 
             <Button
-                android:layout_width="350dp"
+                android:layout_width="310dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="25dp"
                 android:text="Sign Up"
@@ -126,9 +125,7 @@
                 android:textColor="@color/white"/>
 
         </LinearLayout>
+
         </LinearLayout>
-        </ScrollView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+    </ScrollView>
+</FrameLayout>

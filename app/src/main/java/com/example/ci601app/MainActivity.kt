@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.LoginTheme)
         super.onCreate(savedInstanceState)
         // Set the layout for this activity
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main1)
 
         // Set up the bottom navigation menu
         setupBottomNavigation()
@@ -92,12 +92,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home -> {
                     // Navigate to the MainActivity
                     val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.news -> {
-                    // Navigate to the NewsActivity
-                    val intent = Intent(this, NewsActivity::class.java)
                     startActivity(intent)
                     true
                 }

@@ -28,6 +28,9 @@ class QuizActivity : AppCompatActivity() {
     private var lastClickTime: Long = 0
     private val selectedOptions = MutableList(4) { -1 }
     private var questionsList = mutableListOf<Question>()
+    private var timer: CountDownTimer? = null
+    private var quizFinished = false
+
 
     // Called when the activity is created
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -189,6 +192,7 @@ class QuizActivity : AppCompatActivity() {
                         setQuestion(currentQuestionIndex)
                     }
                 }
+
             }
         }
     }
@@ -267,8 +271,8 @@ class QuizActivity : AppCompatActivity() {
 
     // Start a countdown timer for the quiz
     private fun startTimer(timeInMillis: Long) {
-        // Create and start a countdown timer
-        object : CountDownTimer(timeInMillis, 1000) {
+        timer?.cancel()  // Cancel any existing timer before starting a new one
+        timer = object : CountDownTimer(timeInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val minutes = millisUntilFinished / 60000
                 val seconds = (millisUntilFinished % 60000) / 1000
@@ -276,12 +280,13 @@ class QuizActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                timerTextView.text = "Time's Up!"
-                finishQuiz()
+                if (!quizFinished) {  // Check if quiz is already finished
+                    timerTextView.text = "Time's Up!"
+                    finishQuiz()
+                }
             }
         }.start()
     }
-
     // Handle action bar item selection
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return if (item.itemId == android.R.id.home) {
@@ -303,6 +308,9 @@ class QuizActivity : AppCompatActivity() {
 
     // Finish the quiz and navigate to the results screen
     private fun finishQuiz() {
+        if (quizFinished) return  // Prevent multiple calls
+        quizFinished = true  // Set the flag to true
+
         Log.d("QuizActivity", "Finishing quiz. Total Questions: ${questionsList.size}, Current Index: $currentQuestionIndex")
         val totalQuestions = questionsList.size
         val correctAnswers = selectedOptions.withIndex().count { (index, answer) ->
@@ -316,7 +324,10 @@ class QuizActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
+    override fun onDestroy() {
+        super.onDestroy()
+        timer?.cancel()  // Cancel the timer if the activity is destroyed
+    }
     // Data class to represent a quiz question
     data class Question(
         val questionText: String,
